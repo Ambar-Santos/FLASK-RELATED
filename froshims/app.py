@@ -12,4 +12,7 @@ def index():
 
 @app.route("/register", methods=["POST"])
 def register():
-  return render_template("success.html")
+  if not request.form.get("name") or not request.form.get("sport"):
+    return render_template("failure.html")
+  else:
+    return render_template("sucess.html")
