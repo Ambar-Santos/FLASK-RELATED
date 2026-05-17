@@ -9,8 +9,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+  return render_template("index.html")
 
-    name = request.args.get("name", "world") #world being default value
-    return render_template("index.html", name=name)
-                           #positional
 
+
+@app.route("/greet")
+def greet():
+  name = request.args.get("name", "world")
+  return render_template("greet.html", name=name)
