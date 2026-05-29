@@ -4,8 +4,8 @@
 
       <h1>Register</h1>
       <form action="/register" method="post">
-        <input required autofocus autocomplete="off" name="name" placeholder="Name" type="text">
-        <select required name="sport">
+        <input autofocus autocomplete="off" name="name" placeholder="Name" type="text">
+        <select name="sport">
             <option selected disabled value="">Sport</option>
             {% for sport in sports%}
                <option value="{{ sport }}">{{ sport }}</option>
