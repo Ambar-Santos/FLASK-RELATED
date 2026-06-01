@@ -1,13 +1,12 @@
 #Initialization 
-from flask import Flask 
-from flask import request 
+from flask import Flask, redirect 
 
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return '<h1>Bad Request</h1>', 400
+    return redirect('https://github.com/Ambar-Santos/DemoServlet')
 
 @app.route('/user/<name>')
 def user(name):
