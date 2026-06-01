@@ -1,12 +1,21 @@
-<html>
-    <head>
-        <title>User</title>
-    </head>
-    <body>
+{% extends "base.html" %}
+
+{% block title %}User{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style> 
+    *{
+        background-color: black;
+        color: white
+    }     
+    </style>
+{% endblock %}
+
+{% block body %}
       {% if user %}
         Hello, {{ user }}
       {% else %}
         Hello, Stranger!
       {% endif %}
-    </body>
-</html>
+{% endblock %}
+ 
