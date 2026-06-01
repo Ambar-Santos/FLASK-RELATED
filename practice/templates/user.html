@@ -3,7 +3,10 @@
         <title>User</title>
     </head>
     <body>
-        <h3>Welcome</h3>
-        <p>Hello {{ name }}</p>
+      {% if user %}
+        Hello, {{ user }}
+      {% else %}
+        Hello, Stranger!
+      {% endif %}
     </body>
 </html>
