@@ -1,18 +1,16 @@
 #Initialization 
-from flask import Flask, redirect 
+from flask import Flask, redirect, render_template
 
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return redirect('https://github.com/Ambar-Santos/DemoServlet')
+    return render_template('index.html')
 
 @app.route('/user/<name>')
 def user(name):
-   return '<h1>Hello, {}!</h1>'.format(name)
-
-
+    return render_template('user.html', name=name)
 
 
 if __name__ == '__main__':
