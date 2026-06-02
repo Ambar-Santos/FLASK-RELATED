@@ -17,3 +17,12 @@ Install Flask SQLAlchemy
 - import flask 
 - database configuration 
 - Create the tables before the app can use them 
+
+3. Creting records
+
+- Create route that handles 
+   - showing the form (GET) 
+   - Processing the submited data (POST)
+
+   db.session.add() ---> Stages new record
+   db.session.commit() ---> Saves it to the database
