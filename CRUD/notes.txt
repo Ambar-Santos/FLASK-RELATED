@@ -39,3 +39,5 @@ Two retrieve routes
  - find the record 
  - delete it 
  - create a new one wiht new values
+
+ 6. Delete
