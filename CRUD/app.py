@@ -66,7 +66,7 @@ def update(id):
     return render_template('update.html', employee=employee)
 
 #Delete
-@app.route('data/<int:id>/delete', methods=['GET', 'POST'])
+@app.route('/data/<int:id>/delete', methods=['GET', 'POST'])
 def delete(id): 
     employee = EmployeeModel.query.filter_by(employee_id=id).first()
     if request.method == 'POST':
