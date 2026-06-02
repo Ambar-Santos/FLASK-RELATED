@@ -9,6 +9,12 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    return render_template('index.html')
+
+
 @app.route('/data/create', methods=['GET', 'POST'])
 def create():
     if request.method == 'GET':
@@ -24,6 +30,13 @@ def create():
         db.session.commit()
         return redirect('/data')
   
-  
+
+#retrieve all employees
+@app.route('/data')
+def RetrieveDataList():
+    employees = EmployeeModel.query.all()
+    return render_template('datalist.html', employees=employees) #emplayees=listofemployees
+
+
 if __name__ == '__main__':
   app.run(debug=True)
