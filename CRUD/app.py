@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, redirect
-from models import * 
+from models import db, EmployeeModel
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -46,7 +46,6 @@ def RetrieveSingleEmployee(id):
     return f"Employee with id={id} Does not exist"
 
 #Update 
-
 @app.route('/data/<int:id>/update', methods=['GET', 'POST'])
 def update(id):
     employee = EmployeeModel.query.filter_by(employee_id=id).first()
@@ -66,7 +65,17 @@ def update(id):
         return f"Employee with id{id} does not exist" 
     return render_template('update.html', employee=employee)
 
-
+#Delete
+@app.route('data/<int:id>/delete', methods=['GET', 'POST'])
+def delete(id): 
+    employee = EmployeeModel.query.filter_by(employee_id=id).first()
+    if request.method == 'POST':
+        if employee: 
+            db.session.delete(employee)
+            db.session.commit()
+            return redirect('/data')
+        abort(404)
+    return render_template('delete.html')
 
 #run server
 if __name__ == '__main__':
