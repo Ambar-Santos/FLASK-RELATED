@@ -1,5 +1,5 @@
 #Initialization 
-from flask import Flask, redirect, render_template, url_for, session
+from flask import Flask, redirect, render_template, url_for, session, flash
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
@@ -23,8 +23,11 @@ class NameForm(FlaskForm):
 def index():
     form = NameForm()
     if form.validate_on_submit():
-       session['name'] = form.name.data
-       return redirect(url_for('index'))
+      old_name = session.get('name')
+      if old_name is not None and old_name != form.name.data:
+         flash(f'Looks like you have changed your name to {form.name.data}, interesting!')
+         session['name'] = form.name.data
+         return redirect(url_for('index'))
     return render_template('index.html', form=form, name=session.get('name'))
 
 @app.route('/user/<name>')
