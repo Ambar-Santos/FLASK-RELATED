@@ -1,0 +1,19 @@
+1. Data Structure Set up 
+
+Employee Management App 
+
+= Model for Employee
+  - id 
+  - employee_id, 
+  - name,
+  - age,
+  - position 
+
+Install Flask SQLAlchemy 
+
+
+2. Main application set up
+
+- import flask 
+- database configuration 
+- Create the tables before the app can use them 
