@@ -19,12 +19,16 @@ class NameForm(FlaskForm):
 
 #Routes
    
-@app.route('/')
+@app.route('/', methods=['GET', 'POST']) #get is not secure for forms, so post it is
 def index():
+    name = 'Stranger'
     form = NameForm()
-    return render_template('index.html', form=form)
+    if form.validate_on_submit():
+       name = form.name.data
+       form.name.data = ' '
+    return render_template('index.html', form=form, name=name)
 
-@app.route('/user/<user>')
+@app.route('/user/<name>', methods=['GET', 'POST'])
 def user(name):
     return render_template('user.html', name=name)
 
