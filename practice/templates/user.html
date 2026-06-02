@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 
 {% block title %}Flasky{% endblock %}
+{% block head%}
+{{ super() }}
+<style>
+  #name{
+       font-style: italic;
+  }
+</style>
 
+
+{% endblock %}
 {% block page_content %}
   <div class="page-header">
     <h1>Hello, {{ user }}!</h1>
