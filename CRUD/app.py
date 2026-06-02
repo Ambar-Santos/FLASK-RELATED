@@ -14,7 +14,7 @@ with app.app_context():
 def index():
     return render_template('index.html')
 
-
+#CREATE
 @app.route('/data/create', methods=['GET', 'POST'])
 def create():
     if request.method == 'GET':
@@ -39,7 +39,7 @@ def RetrieveDataList():
 
 #retrieve specific employee
 @app.route('/data/<int:id>')
-def RetrieveSingleEmployee():
+def RetrieveSingleEmployee(id):
     employee = EmployeeModel.query.filter_by(employee_id=id).first()
     if employee:
         return render_template('data.html', employee=employee) #employeeforhtml=variablepython
