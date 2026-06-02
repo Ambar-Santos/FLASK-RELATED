@@ -27,6 +27,15 @@ Install Flask SQLAlchemy
    db.session.add() ---> Stages new record
    db.session.commit() ---> Saves it to the database
 
+4. Retrieve Data
 
+Two retrieve routes 
+ - One shows all employees
+ - The other shows just one employee
 
    Notes: url RULE 
+
+5. Update
+ - find the record 
+ - delete it 
+ - create a new one wiht new values

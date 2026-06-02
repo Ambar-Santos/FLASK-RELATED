@@ -30,7 +30,7 @@ def create():
         db.session.commit()
         return redirect('/data')
   
-
+#RETRIEVE
 #retrieve all employees
 @app.route('/data')
 def RetrieveDataList():
@@ -45,9 +45,26 @@ def RetrieveSingleEmployee(id):
         return render_template('data.html', employee=employee) #employeeforhtml=variablepython
     return f"Employee with id={id} Does not exist"
 
+#Update 
 
+@app.route('/data/<int:id>/update', methods=['GET', 'POST'])
+def update(id):
+    employee = EmployeeModel.query.filter_by(employee_id=id).first()
+    if request.method == 'POST':
+        if employee:
+            db.session.delete(employee)
+            db.session.commit()
 
+            name = request.form['name']
+            age = request.form['age']
+            position = request.form['position']
+            employee = EmployeeModel(employee_id=id, name=name, age=age, position=position)
 
+            db.session.add(employee)
+            db.session.commit()
+            return redirect(f'/data/{id}')
+        return f"Employee with id{id} does not exist" 
+    return render_template('update.html', employee=employee)
 
 
 
