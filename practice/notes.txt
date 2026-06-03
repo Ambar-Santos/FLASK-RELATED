@@ -1,3 +1,17 @@
+Database Operations
+- Learning how to work with models in the python shell. 
+
+> Make sure the FLASK_APP environment is set to app.py
+
+        # Linux / macOS
+        export FLASK_APP=my_app
+
+        # Windows (CMD)
+        set FLASK_APP=my_app
+
+        # Windows (PowerShell)
+        $env:FLASK_APP="my_app"
+
 Creating tables in the database 
 
 >>> from app import db
@@ -33,3 +47,6 @@ Changes in the database are managed through a database session
 
 = Database sessions are also called transactions
 = db.sessions are not related to the session flask object
+
+a data base session can be also rolled back. 
+db.session.rollback()
