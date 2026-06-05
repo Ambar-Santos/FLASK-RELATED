@@ -1,4 +1,5 @@
 Tutorial Resource: https://pyquesthub.com/building-crud-applications-with-flask-a-comprehensive-guide
+Either the tutorial needs to be updated or its filled with errors. 
 
 1. Create virtual environment
 
