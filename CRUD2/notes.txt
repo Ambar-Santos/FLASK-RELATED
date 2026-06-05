@@ -1,0 +1,10 @@
+Tutorial Resource: https://pyquesthub.com/building-crud-applications-with-flask-a-comprehensive-guide
+
+1. Create virtual environment
+
+python3 -m venv venv 
+
+2. Install Flask and Other packages
+
+pip install Flask Flask-SQLAlchemy flask-wtf
+
