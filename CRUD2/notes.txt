@@ -27,4 +27,9 @@ CRUD2/
     from app import db
     db.create_all()
 
-    
+## Error log
+
+1. Creation of the database and tables 
+   - Was not importing the model from models
+   - Create the database from the model 
+   - Create db.create_all() in app.run()
