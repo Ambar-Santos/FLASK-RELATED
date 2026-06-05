@@ -20,3 +20,11 @@ CRUD2/
     |___create.html
     |___update.html 
     |___delete.html 
+
+    4. Creating DATABASE 
+
+    - flask shell 
+    from app import db
+    db.create_all()
+
+    
