@@ -50,6 +50,15 @@ def edit(id):
         return redirect(url_for('index'))
     return render_template('update.html', form=form, item=item)
 
+@app.route('/delete/<int:id>', methods=['GET'])
+def delete_confirmation(id):
+    item = Item.query.get_or_404(id)
+    return render_template('delete.html', item=item)
+
+
+
+
+
 # Delete item 
 @app.route('/delete/<int:id>', methods=['POST'])
 def delete(id):
@@ -58,7 +67,6 @@ def delete(id):
     db.session.commit()
     flash('Item deleted successfully!')
     return redirect(url_for('index'))
-
 
 if __name__ == '__main__':
   with app.app_context():

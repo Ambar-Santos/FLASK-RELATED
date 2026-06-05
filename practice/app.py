@@ -27,7 +27,6 @@ class NameForm(FlaskForm):
    name = StringField('What is your name', validators=[DataRequired()])
    submit = SubmitField('Submit')
 
-
 #Models
 class Role(db.Model):
    __tablename__ = 'roles'
@@ -40,7 +39,6 @@ class Role(db.Model):
    
 
 
-
 class User(db.Model):
    __tablename__ = 'users'
    id = db.Column(db.Integer, primary_key=True)
@@ -49,13 +47,6 @@ class User(db.Model):
 
    def __repr__(self):
       return '<User %r>' % self.username
-
-
-
-
-
-
-
 
 
 #Routes

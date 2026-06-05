@@ -12,11 +12,9 @@
     <a href="/create">Create a New Item</a>
     <ul>
         {% for item in items %}
-        <li>{{item.name}}
+        <li>{{ item.name }}
             <a href="/edit/{{ item.id }}">Edit</a>
-            <form action="/delete/{{ item.id}}" method="post" style="display:inline;">
-                <input type="submit" value="Delete">
-            </form>
+            <a href="/delete/{{ item.id }}">Delete</a>
         </li>
         {% endfor %}
     </ul>
