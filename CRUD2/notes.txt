@@ -8,3 +8,15 @@ python3 -m venv venv
 
 pip install Flask Flask-SQLAlchemy flask-wtf
 
+3. App Structure 
+
+CRUD2/
+|
+|---app.py
+|---models.py
+|---forms.py
+|---templates/
+    |___index.html 
+    |___create.html
+    |___update.html 
+    |___delete.html 
